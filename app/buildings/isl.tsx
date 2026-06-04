@@ -1,0 +1,1915 @@
+
+
+import React, { useRef } from 'react'
+import { useGLTF } from '@react-three/drei'
+type Props = {
+  selected?: boolean
+  onSelect?: (id: string) => void
+  onClick?: () => void
+  visibleFloors?: string[]
+}
+
+export function ISL({ visibleFloors = ["1ST", "2ND", "roof"], selected, onSelect, onClick, ...props }: Props) {
+  const { nodes, materials } = useGLTF('/ISL.glb') as any;
+  return (
+    <group {...props}
+      onClick={(e) => {
+        e.stopPropagation()
+        onClick?.()
+      }}  dispose={null} position={[80,0,-93]} rotation={[0,-Math.PI / 8, 0, ]} scale={[1.15, 1.15, 1.15]}>
+      <group>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group name="Assembly-88" scale={0.001}>
+            <group
+              name="Active_View"
+              position={[-108835.656, -18584.906, 64471.527]}
+              rotation={[0.379, -0.912, -1.104]}
+              scale={1000}
+            />
+            {visibleFloors.includes('2ND') && (
+            <group
+              name="2nd-floor"
+              position={[5268, 26124, 3348]}
+              rotation={[0, 0, -Math.PI]}
+              scale={25.4}>
+              <mesh
+                name="3DGeom-1"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-1'].geometry}
+                material={materials['[0012_Bisque]1']}
+              />
+              <mesh
+                name="3DGeom-2"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-2'].geometry}
+                material={materials['cream ']}
+              />
+              <mesh
+                name="3DGeom-3"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-3'].geometry}
+                material={materials.mageta}
+              />
+              <mesh
+                name="3DGeom-4"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-4'].geometry}
+                material={materials['*']}
+              />
+              <group position={[406.929, 1390.039, 35.433]}>
+                <mesh
+                  name="3DGeom-5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[406.929, 1489.803, 35.433]}>
+                <mesh
+                  name="3DGeom-5_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_1'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[406.929, 1589.567, 35.433]}>
+                <mesh
+                  name="3DGeom-5_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_2'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_2'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_2'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[406.929, 1689.331, 35.433]}>
+                <mesh
+                  name="3DGeom-5_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_3'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_3'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_3'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[393.031, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_4'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_4'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_4'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[293.268, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_5'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_5'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_5'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[193.504, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_6"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_6'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_6"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_6'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_6"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_6'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[93.74, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_7"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_7'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_7"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_7'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_7"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_7'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1761.299, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_8"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_8'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_8"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_8'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_8"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_8'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1661.535, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_9"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_9'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_9"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_9'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_9"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_9'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1561.772, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_10"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_10'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_10"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_10'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_10"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_10'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1462.008, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_11"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_11'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_11"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_11'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_11"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_11'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1344.252, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_12"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_12'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_12"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_12'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_12"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_12'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[321.063, 7.874, 35.433]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_13"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_13'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_13"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_13'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_13"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_13'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[420.827, 7.874, 35.433]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_14"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_14'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_14"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_14'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_14"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_14'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[492.795, 441.575, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_15"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_15'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_15"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_15'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_15"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_15'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[393.031, 441.575, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_16"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_16'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_16"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_16'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_16"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_16'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[506.693, 35.433, 35.433]}>
+                <mesh
+                  name="3DGeom-56"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-56'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-57"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-57'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-58"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-58'].geometry}
+                  material={materials['WB Glazing']}
+                />
+              </group>
+              <group position={[506.693, 195.197, 35.433]}>
+                <mesh
+                  name="3DGeom-59"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-59'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-60"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-60'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-61"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-61'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[506.693, 332.165, 35.433]}>
+                <mesh
+                  name="3DGeom-59_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-59_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-60_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-60_1'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-61_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-61_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1212.835, 35.576]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1053.071, 35.576]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_1'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 893.307, 35.576]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_2'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_2'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_2'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 733.543, 35.576]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_3'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_3'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_3'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 573.78, 35.576]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_4'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_4'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_4'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[221.299, 167.638, 35.591]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_17"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_17'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_17"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_17'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_17"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_17'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[107.638, 281.811, 106.26]} rotation={[Math.PI / 2, 0, 0]}>
+                <mesh
+                  name="3DGeom-83"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-83'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-84"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-84'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[257.283, 1376.142, 100.394]} rotation={[Math.PI / 2, 0, 0]}>
+                <mesh
+                  name="3DGeom-85"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-85'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-86"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-86'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group
+                position={[257.283, 1376.142, 53.15]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[1, 0.913, 1]}>
+                <mesh
+                  name="3DGeom-87"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-87'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-88"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-88'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-89"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-89'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group position={[321.063, 1376.142, 35.433]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_18"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_18'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_18"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_18'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_18"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_18'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[207.402, 1194.843, 53.15]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-93"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-93'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-94"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-94'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-95"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-95'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group
+                position={[207.402, 1194.843, 100.394]}
+                rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-96"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-96'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-97"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-97'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group
+                position={[207.402, 806.654, 100.394]}
+                rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-96_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-96_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-97_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-97_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[207.402, 806.654, 53.15]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-93_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-93_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-94_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-94_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-95_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-95_1'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group
+                position={[207.402, 715.551, 100.394]}
+                rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-96_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-96_2'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-97_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-97_2'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[207.402, 715.551, 53.15]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-93_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-93_2'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-94_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-94_2'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-95_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-95_2'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group
+                position={[207.402, 376.339, 100.394]}
+                rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-96_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-96_3'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-97_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-97_3'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[207.402, 376.339, 53.15]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-93_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-93_3'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-94_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-94_3'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-95_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-95_3'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group
+                position={[307.165, 361.693, 53.15]}
+                rotation={[Math.PI / 2, -Math.PI / 2, 0]}
+                scale={[1, 0.913, 1]}>
+                <mesh
+                  name="3DGeom-87_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-87_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-88_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-88_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-89_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-89_1'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group
+                position={[307.165, 361.693, 100.394]}
+                rotation={[Math.PI / 2, -Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-85_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-85_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-86_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-86_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+            </group>
+            )}
+             {visibleFloors.includes('roof') && (
+
+            <group
+              name="roof"
+              position={[6268, 26124, 6296]}
+              rotation={[0, 0, -Math.PI]}
+              scale={25.4}>
+              <mesh
+                name="3DGeom-118"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-118'].geometry}
+                material={materials['cream ']}
+              />
+              <mesh
+                name="3DGeom-119"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-119'].geometry}
+                material={materials['[0130_Gainsboro]']}
+              />
+              <mesh
+                name="3DGeom-120"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-120'].geometry}
+                material={materials['[0021_DarkRed]']}
+              />
+              <group position={[0, 1310.815, 239.793]} rotation={[-0.753, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-121"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-121'].geometry}
+                  material={materials['[0021_DarkRed]']}
+                />
+              </group>
+              <group position={[493.543, 1939.055, 149.98]} rotation={[0.138, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-122"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-122'].geometry}
+                  material={materials['[0021_DarkRed]']}
+                />
+              </group>
+              <group name="m" position={[-290.159, -423.356, -247.874]}>
+                <group name="3DGeom-123" />
+              </group>
+            </group>
+             )}
+             {visibleFloors.includes('1ST') && (
+
+
+            <group
+              name="1st-floor"
+              position={[5268, 26124, 0]}
+              rotation={[0, 0, -Math.PI]}
+              scale={25.4}>
+              <mesh
+                name="3DGeom-124"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-124'].geometry}
+                material={materials['[0012_Bisque]1']}
+              />
+              <mesh
+                name="3DGeom-125"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-125'].geometry}
+                material={materials.mageta}
+              />
+              <mesh
+                name="3DGeom-126"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-126'].geometry}
+                material={materials['cream ']}
+              />
+              <mesh
+                name="3DGeom-127"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-127'].geometry}
+                material={materials['*']}
+              />
+              <mesh
+                name="3DGeom-128"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-128'].geometry}
+                material={materials['[0012_Bisque]']}
+              />
+              <mesh
+                name="3DGeom-129"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-129'].geometry}
+                material={materials['[White Square Tile]']}
+              />
+              <mesh
+                name="3DGeom-130"
+                castShadow
+                receiveShadow
+                geometry={nodes['3DGeom-130'].geometry}
+                material={nodes['3DGeom-130'].material}
+              />
+              <group position={[406.929, 1390.039, 35.433]}>
+                <mesh
+                  name="3DGeom-5_19"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_19'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_19"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_19'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_19"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_19'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[406.929, 1489.803, 35.433]}>
+                <mesh
+                  name="3DGeom-5_20"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_20'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_20"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_20'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_20"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_20'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[406.929, 1589.567, 35.433]}>
+                <mesh
+                  name="3DGeom-5_21"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_21'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_21"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_21'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_21"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_21'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[406.929, 1689.331, 35.433]}>
+                <mesh
+                  name="3DGeom-5_22"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_22'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_22"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_22'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_22"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_22'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[393.031, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_23"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_23'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_23"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_23'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_23"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_23'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[293.268, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_24"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_24'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_24"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_24'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_24"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_24'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[193.504, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_25"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_25'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_25"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_25'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_25"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_25'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[93.74, 1775.197, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_26"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_26'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_26"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_26'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_26"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_26'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1761.299, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_27"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_27'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_27"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_27'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_27"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_27'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1661.535, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_28"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_28'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_28"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_28'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_28"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_28'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1561.772, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_29"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_29'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_29"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_29'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_29"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_29'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1462.008, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-5_30"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_30'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_30"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_30'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_30"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_30'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[321.063, 1376.142, 35.433]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_31"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_31'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_31"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_31'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_31"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_31'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[321.063, 7.874, 35.433]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_32"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_32'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_32"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_32'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_32"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_32'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[420.827, 7.874, 35.433]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_33"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_33'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_33"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_33'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_33"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_33'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[492.795, 441.575, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_34"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_34'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_34"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_34'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_34"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_34'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[393.031, 441.575, 35.433]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-5_35"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-5_35'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-6_35"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-6_35'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-7_35"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-7_35'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[257.283, 1376.142, 57.087]} rotation={[Math.PI / 2, 0, 0]}>
+                <mesh
+                  name="3DGeom-87_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-87_2'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-88_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-88_2'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-89_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-89_2'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group position={[157.52, 1376.142, 57.087]} rotation={[Math.PI / 2, 0, 0]}>
+                <mesh
+                  name="3DGeom-87_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-87_3'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-88_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-88_3'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-89_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-89_3'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group position={[207.402, 1194.843, 53.15]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-93_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-93_4'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-94_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-94_4'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-95_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-95_4'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group
+                position={[207.402, 1194.843, 100.394]}
+                rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-96_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-96_4'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-97_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-97_4'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[207.402, 646.89, 100.394]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-96_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-96_5'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-97_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-97_5'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[207.402, 646.89, 53.15]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-93_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-93_5'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-94_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-94_5'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-95_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-95_5'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group position={[207.402, 537.795, 11.811]}>
+                <mesh
+                  name="3DGeom-198"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-198'].geometry}
+                  material={materials['[0043_SaddleBrown]']}
+                />
+              </group>
+              <group position={[207.402, 309.37, 11.811]}>
+                <mesh
+                  name="3DGeom-198_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-198_1'].geometry}
+                  material={materials['[0043_SaddleBrown]']}
+                />
+              </group>
+              <group
+                position={[307.165, 361.693, 53.15]}
+                rotation={[Math.PI / 2, -Math.PI / 2, 0]}
+                scale={[1, 0.913, 1]}>
+                <mesh
+                  name="3DGeom-87_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-87_4'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-88_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-88_4'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-89_4"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-89_4'].geometry}
+                  material={materials['[0131_Silver]']}
+                />
+              </group>
+              <group
+                position={[307.165, 361.693, 100.394]}
+                rotation={[Math.PI / 2, -Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-85_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-85_2'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-86_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-86_2'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[506.693, 35.433, 35.433]}>
+                <mesh
+                  name="3DGeom-56_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-56_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-57_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-57_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+                <mesh
+                  name="3DGeom-58_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-58_1'].geometry}
+                  material={materials['WB Glazing']}
+                />
+              </group>
+              <group position={[506.693, 195.197, 35.433]}>
+                <mesh
+                  name="3DGeom-59_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-59_2'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-60_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-60_2'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-61_2"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-61_2'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[506.693, 332.165, 35.433]}>
+                <mesh
+                  name="3DGeom-59_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-59_3'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-60_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-60_3'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-61_3"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-61_3'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1212.835, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_5'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_5'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_5"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_5'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 1053.071, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_6"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_6'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_6"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_6'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_6"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_6'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 893.307, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_7"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_7'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_7"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_7'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_7"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_7'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 733.543, 35.433]} rotation={[0, 0, Math.PI]}>
+                <mesh
+                  name="3DGeom-65_8"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-65_8'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-66_8"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-66_8'].geometry}
+                  material={materials['WB Glazing']}
+                />
+                <mesh
+                  name="3DGeom-67_8"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-67_8'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 521.457, 106.102]} rotation={[Math.PI / 2, -Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-226"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-226'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-227"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-227'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[7.874, 361.693, 106.102]} rotation={[Math.PI / 2, -Math.PI / 2, 0]}>
+                <mesh
+                  name="3DGeom-226_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-226_1'].geometry}
+                  material={materials['[0136_Charcoal]']}
+                />
+                <mesh
+                  name="3DGeom-227_1"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-227_1'].geometry}
+                  material={materials['[0135_DarkGray]']}
+                />
+              </group>
+              <group position={[1719.577, 739.817, 0]} rotation={[0, 0, Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-230"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-230'].geometry}
+                  material={materials['[0012_Bisque]1']}
+                />
+                <mesh
+                  name="3DGeom-231"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-231'].geometry}
+                  material={materials['[White Square Tile]']}
+                />
+              </group>
+              <group position={[-1525.246, 1876.718, 78.74]} rotation={[0, 0, -Math.PI / 2]}>
+                <mesh
+                  name="3DGeom-232"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-232'].geometry}
+                  material={materials['[0012_Bisque]1']}
+                />
+                <mesh
+                  name="3DGeom-233"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-233'].geometry}
+                  material={materials['[White Square Tile]']}
+                />
+              </group>
+              <group position={[-329.529, -423.356, 0]}>
+                <mesh
+                  name="3DGeom-234"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-234'].geometry}
+                  material={materials['[0012_Bisque]1']}
+                />
+                <mesh
+                  name="3DGeom-235"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-235'].geometry}
+                  material={materials.mageta}
+                />
+              </group>
+              <group position={[760.08, 791.728, 0]} rotation={[0, 0, -Math.PI]}>
+                <mesh
+                  name="3DGeom-236"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-236'].geometry}
+                  material={materials['[White Square Tile]']}
+                />
+                <mesh
+                  name="3DGeom-237"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes['3DGeom-237'].geometry}
+                  material={materials['[0012_Bisque]1']}
+                />
+                <group position={[1089.61, 1215.085, 0]} rotation={[0, 0, Math.PI]}>
+                  <mesh
+                    name="3DGeom-238"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes['3DGeom-238'].geometry}
+                    material={materials.mageta}
+                  />
+                </group>
+              </group>
+            </group>
+             )}
+
+          </group>
+        </group>
+      </group>
+    </group>
+  )
+}
+
+useGLTF.preload('/ISL.glb')

@@ -1,0 +1,322 @@
+----------this for routing services
+const [start, setStart] = useState<Pin | null>(null);
+  const [end, setEnd] = useState<Pin | null>(null);
+
+type Pin = { latitude: number; longitude: number };
+
+function RoutingController({
+  start,
+  end,
+  setStart,
+  setEnd,
+  setRoute,
+}: {
+  start: Pin | null;
+  end: Pin | null;
+  setStart: (v: Pin | null) => void;
+  setEnd: (v: Pin | null) => void;
+  setRoute: (v: RouteGeoJSON | null) => void;
+}) {
+  const { current: mapRef } = useMap();
+
+usePinSetter({
+  map: mapRef ? mapRef.getMap() : null, // ✅ FIX
+  start,
+  end,
+  setStart,
+  setEnd,
+  clearRoute: () => setRoute(null),
+});
+
+
+  // fetch route when start + end is ready
+  useEffect(() => {
+    async function loadRoute() {
+      if (!start || !end) return;
+
+      try {
+        const route = await fetchOSRMRoute(
+          [start.longitude, start.latitude],
+          [end.longitude, end.latitude]
+        );
+        setRoute(route);
+      } catch (err) {
+        console.log("Routing error:", err);
+      }
+    }
+
+    loadRoute();
+  }, [start, end, setRoute]);
+
+  return null;
+}
+
+
+<RoutingController
+        start={start}
+        end={end}
+        setStart={setStart}
+        setEnd={setEnd}
+        setRoute={setRoute}
+      />
+
+      <RoutePins start={start} end={end} />
+
+
+/// this prev code
+
+
+
+"use client";
+
+import { IOES } from "../../buildings/ioes";
+import { NewAcad } from "../../buildings/newacad";
+import { StudenCenter } from "../../buildings/student-center";
+import { SHS } from "../../buildings/Cas-shs";
+import { CASS } from "../../buildings/cas";
+import { FIC } from "../../buildings/fic";
+import { COED } from "../../buildings/coed";
+
+import { useParams } from "next/navigation";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stage, Loader, MapControls,Sky } from "@react-three/drei";
+import React, { Suspense , useEffect, useState} from "react";
+
+export default function BuildingPage() {
+  const params = useParams();
+  const name = params?.name as string | undefined;
+
+
+
+ 
+  
+
+  // Prevent crash when refreshing page
+  if (!name) return null;
+
+  const buildings: any = {
+    IOES: <IOES />,
+    SHS: <SHS />,
+    CASS: <CASS />,
+    FIC: <FIC />,
+    COED: <COED />,
+    NewAcad: <NewAcad />,
+    StudenCenter: <StudenCenter />,
+  };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        height: "100vh",
+        width: "100%",
+        backgroundColor: "#f3f3ee",
+        overflow: "hidden",
+      }}
+    >
+      {/* ================= LEFT : 3D VIEWER ================= */}
+      <div
+        style={{
+          position: "relative",
+          flex: 1,
+          height: "100%",
+          overflow: "hidden",
+          zIndex: 1,
+        }}
+      >
+        <Canvas
+          shadows
+          dpr={[1, 2]}
+          style={{
+            position: "absolute",
+            inset: 0,
+          }}
+        >
+          <color attach="background" args={["#C9B59C"]} />
+    <Sky
+  distance={450000}
+  sunPosition={[1,1,0.5]}
+  inclination={0.49}
+  azimuth={0.25}
+/>
+          <Suspense fallback={null}>
+            <Stage
+              adjustCamera
+              intensity={0.5}
+              shadows="contact"
+              environment="city"
+            >
+              <group rotation={[0, Math.PI, 0]} position={[0,0,0]}>
+                {buildings[name] ?? <mesh />}
+              </group>
+            </Stage>
+          </Suspense>
+
+          {/* <OrbitControls
+            makeDefault
+            enablePan={false}
+            minPolarAngle={Math.PI / 4}
+            maxPolarAngle={Math.PI / 2}
+          /> */}
+
+          <MapControls 
+        enableRotate={true} 
+        enableZoom={true} 
+        enablePan={true} 
+        maxPolarAngle={Math.PI / 2.2} // limit tilt (looking straight down)
+        minPolarAngle={0}
+        maxDistance={150}/>
+        </Canvas>
+
+        <Loader />
+      </div>
+
+      {/* ================= RIGHT : SIDEBAR ================= */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 5,
+          width: "380px",
+          minWidth: "380px",
+          flexShrink: 0,
+          height: "100%",
+          backgroundColor: "#ffffff",
+          boxShadow: "-10px 0 30px rgba(0,0,0,0.12)",
+          display: "flex",
+          flexDirection: "column",
+          borderLeft: "1px solid #f1f1f1",
+        }}
+      >
+        {/* CONTENT */}
+        <div
+          style={{
+            padding: "40px",
+            flex: 1,
+            overflowY: "auto",
+          }}
+        >
+          <header style={{ marginBottom: "32px" }}>
+            <h1
+              style={{
+                fontSize: "40px",
+                fontFamily: "serif",
+                fontWeight: "bold",
+                color: "#111827",
+              }}
+            >
+              {name}
+            </h1>
+              <h2></h2>
+            <div
+              style={{
+                height: "4px",
+                width: "48px",
+                backgroundColor: "#111827",
+                marginTop: "16px",
+              }}
+            />
+          </header>
+
+          <p
+            style={{
+              color: "#6b7280",
+              lineHeight: "1.8",
+              fontSize: "18px",
+            }}
+          >
+         
+          </p>
+
+          {/* QUICK INFO */}
+          <div
+            style={{
+              backgroundColor: "#f9fafb",
+              borderRadius: "18px",
+              padding: "24px",
+              border: "1px solid #f1f1f1",
+              marginTop: "28px",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "12px",
+                textTransform: "uppercase",
+                letterSpacing: "3px",
+                fontWeight: 600,
+                color: "#9ca3af",
+                marginBottom: "18px",
+              }}
+            >
+              Quick Info
+            </h2>
+
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              <li style={row}>
+                <span style={label}>ID</span>
+                <span style={value}>#BLDG-01</span>
+              </li>
+
+              
+              <li style={row}>
+                <span style={label}>Status</span>
+                <span style={{ ...value, color: "#16a34a" }}>Operational</span>
+              </li>
+
+              <li style={row}>
+                <span style={label}>Capacity</span>
+                 
+                <span style={value}>500 Users</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* FOOTER */}
+        <div
+          style={{
+            padding: "32px",
+            borderTop: "1px solid #f1f1f1",
+            backgroundColor: "rgba(249,250,251,0.5)",
+          }}
+        >
+          <button
+            style={{
+              width: "100%",
+              backgroundColor: "#111827",
+              color: "white",
+              padding: "16px",
+              borderRadius: "14px",
+              border: "none",
+              cursor: "pointer",
+              fontWeight: 600,
+            }}
+          >
+            View Floor Plans
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* reusable styles */
+const row = {
+  display: "flex",
+  justifyContent: "space-between",
+  marginBottom: "12px",
+};
+
+const label = {
+  color: "#9ca3af",
+};
+
+const value = {
+  color: "#1f2937",
+  fontWeight: 500,
+};
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "ioes",
+    "name": "COFEST",
+    "description": "Ramon Hall is a COFEST building, formerly known as the IOES Building. This two-story academic facility serves as a center for instruction, research, and administration for the College of Oceanography, Fisheries, Environmental Science & Technology. It houses faculty offices, lecture classrooms, and specialized laboratory rooms designed to support marine science, fisheries studies, and environmental research. Ramon Hall provides students and faculty with a functional and collaborative learning environment that promotes scientific exploration and innovation.",
+    "capacity": 500,
+    "status": "Operational yes it is",
+    "id": "BLDG-01",
+    "lat": 5.038772313700733,
+    "lng": 119.7434615411554,
+    "floors": ["FL 1", "2ND", "roof"],
+     "offices": [
+    { "id": 1, "name": "Dean Office" },
+    { "id": 2, "name": "Guidance Office" },
+    { "id": 3, "name": "Den faculty" }
+  ]
+  },
+  {
+    "slug": "shs",
+    "name": "SHS",
+    "description": "Senior High School Building.",
+    "capacity": 800,
+    "status": "Operational",
+    "id": "BLDG-02"
+  },
+  {
+    "slug": "cass",
+    "name": "CASS",
+    "description": "College of Arts and Social Sciences.",
+    "capacity": 600,
+    "status": "Operational",
+    "id": "BLDG-03"
+  },
+  {
+    "slug": "newacad",
+    "name": "New Academic Building",
+    "description": "Indanan Anni Hall is a three-storey building with a rooftop facility that serves as one of the academic buildings on campus. It houses the College of Computing Studies (CCS) and the College of Industrial and Applied Sciences (CIAS). The building contains classrooms, computer laboratories, and faculty offices designed to support both lecture-based and hands-on learning activities. Indanan Anni Hall provides students with a conducive environment for academic instruction, laboratory exercises, and technology-related activities.",
+    "capacity": "not determine",
+    "status": "Operational",
+    "id": "BLDG-04",
+      "lat":  5.038491515094776,
+    "lng": 119.74471541225483,
+     "floors": ["1ST", "2ND", "3RD", "rooftop", "roof"]
+  }
+]
+
+ 

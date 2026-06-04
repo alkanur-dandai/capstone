@@ -1,0 +1,85 @@
+[
+  {
+    
+    "name": "Nerico L. Mingoc",
+    "position": "Dean",
+    "office": "College of computer studies"
+  },
+  {
+    "id": 2,
+    "name": "Charisa F. Llama",
+    "position": "Director, ICTO",
+    "College": "CCS",
+    "office": "ICTO Office"
+  },
+  {
+    "id": 3,
+    "name": "Joseph V. Andas",
+    "position": "Director, Administrative Office",
+    "College": "CCS",
+    "office": "Administrative Office"
+  },
+  {
+    "id": 4,
+    "name": "Ramat B. Hailaya",
+    "position": "Instructor II",
+    "College": "CCS",
+    "office": "CCS Faculty Room"
+  },
+  {
+    "id": 5,
+    "name": "Dayang Farha L. Julambri",
+    "position": "Instructor II",
+    "College": "CCS",
+    "office": "CCS Faculty Room"
+  },
+  {
+    "id": 6,
+    "name": "Estelita Cheng G. Lim",
+    "position": "Chairperson, IT Department",
+    "College": "CCS",
+    "office": "IT Department Office"
+  },
+  {
+    "id": 7,
+    "name": "Abdul-Aziz J. Tiblan",
+    "position": "Instructor I",
+    "College": "CCS",
+    "office": "CCS Faculty Room"
+  },
+  {
+    "id": 8,
+    "name": "Al-Kadra A. Antao",
+    "position": "Instructor I",
+    "College": "CCS",
+    "office": "CCS Faculty Room"
+  },
+  {
+    "id": 9,
+    "name": "Fadz Lorrahiem U. Uddin",
+    "position": "Instructor I",
+    "College": "CCS",
+    "office": "CCS Faculty Room"
+  },
+  {
+    "id": 10,
+    "name": "Romeo L. Panares Jr.",
+    "position": "Chairperson, Computer Applications Department",
+    "College": "CCS",
+    "office": "CA Department Office"
+  },
+  {
+    "id": 11,
+    "name": "Irene A. Bakili",
+    "position": "University Registrar",
+    "College": "CCS",
+    "office": "Registrar Office"
+  },
+  {
+    "id": 12,
+    "name": "Jul-Habir U. Kali",
+    "position": "College Secretary",
+    "College": "CCS",
+    "office": "Dean's Office"
+  }
+]

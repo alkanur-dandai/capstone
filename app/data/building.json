@@ -1,0 +1,215 @@
+{
+    "slug": "COFEST",
+    "name": "COFEST",
+    "description": "college of Fisheries ",
+    "lat": 5.038772313700733,
+    "lng": 119.7434615411554,
+    "floors": ["1ST", "2ND", "roof"]
+},
+{
+    "slug": "CASS",
+    "name": "CASS",
+    "description": "College of Arts and Social Sciences",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "2ND", "roof"]
+},
+{
+    "slug": "Student Center",
+    "name": "Student Center",
+    "description": "Student Building ",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "2ND", "roof"]
+},
+{
+    "slug": "SHS-Building",
+    "name": "SHS-Building",
+    "description": "old shs building, now serve as classrooms ",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "2ND", "roof"]
+},
+{
+    "slug": "Cafeteria",
+    "name": "Cafeteria",
+    "description": "",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "roof"]
+},
+{
+    "slug": "old registrar",
+    "name": "old registrar",
+    "description": "serve as registrar now turn into CBAM college",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "roof"]
+},
+{
+    "slug": "faculty center",
+    "name": "faculty center",
+    "description": "Newly Constructer 2 storey building ",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd", "roof"]
+},
+{
+    "slug": "New Registrar",
+    "name": "New Registrar",
+    "description": "A  2 storey building for new registrar and admission office",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd", "roof"]
+},
+{
+    "slug": "Supply and Procurement",
+    "name": "Supply and Procurement",
+    "description": "",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd", "roof"]
+},
+{
+    "slug": "GYM",
+    "name": "GYM",
+    "description": "Henry V. kong Gymnysium that serves as venue for various activities ",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "roof"]
+},
+{
+    "slug": "Food Innovation Center",
+    "name": "Food Innovation Center",
+    "description": "A confest building that including laboratory",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd", "roof"]
+},
+{
+    "slug": "ISL",
+    "name": "ISL",
+    "description": "A Manuel S. Lam Hall, that serves also for venue for various activity ",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd", "roof"]
+},
+{
+    "slug": "SED",
+    "name": "SED",
+    "description": "is building for Secondary department",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "roof"]
+},
+{
+    "slug": "College Infirmary",
+    "name": "College Infirmary",
+    "description": "College infirmary",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST", "roof"]
+},
+{
+    "slug": "Maas Kamlon hall",
+    "name": "Maas kamlon Hall",
+    "description": "name to the late maas kamlon, is a theatre building",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd", "roof"]
+},
+{
+    "slug": "New Academic Building ",
+    "name": "Indanan Anni Hall ",
+    "description": "A 3 storey Building, where ccs college reside and cias have classroom",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","3rd","roof"]
+},
+{
+    "slug": "Coed ",
+    "name": "College of Education ",
+    "description": "building of coed",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+{
+    "slug": "Library ",
+    "name": "Campus Library",
+    "description": "Campus Library",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+{
+    "slug": "Bulante ",
+    "name": "Sabdani Bulante",
+    "description": "Admin building",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+
+{
+    "slug": "college of fisheries ",
+    "name": "college of fisheries",
+    "description": "building of cof",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+
+{
+    "slug": "college of fisheries 2",
+    "name": "college of fisheries 2",
+    "description": "building of cof 2",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+
+{
+    "slug": "college of lab ",
+    "name": "college of lab",
+    "description": "building of cof lab",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+
+{
+    "slug": "msm ",
+    "name": "marine science museum",
+    "description": "marine science museum",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+
+{
+    "slug": "Research ",
+    "name": "Research",
+    "description": "Research",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","2nd","roof"]
+},
+
+{
+    "slug": "dormitel ",
+    "name": "dormitel",
+    "description": "dormitel",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","roof"]
+},
+
+{
+    "slug": "ROTC ",
+    "name": "ROTC office",
+    "description": "rotc",
+    "lat": "",
+    "lng": "",
+    "floors": ["1ST","roof"]
+},

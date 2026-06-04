@@ -1,0 +1,646 @@
+use this code logic "use client";
+
+import { useParams } from "next/navigation";
+import { Canvas } from "@react-three/fiber";
+import {
+  Stage,
+  Loader,
+  MapControls,
+  Environment,
+} from "@react-three/drei";
+
+import React, { Suspense, useEffect, useState } from "react";
+
+import { IOES } from "../../buildings/ioes";
+import { SHS } from "../../buildings/Cas-shs";
+import { CASS } from "../../buildings/cas";
+import { NewAcad } from "../../buildings/newacad";
+import { StudenCenter } from "../../buildings/student-center";
+import { FIC } from "../../buildings/fic";
+import { COED } from "../../buildings/coed";
+
+export default function BuildingPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+
+  const [building, setBuilding] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+
+  const [floorOrder, setFloorOrder] = useState<string[]>([]);
+  const [visibleFloors, setVisibleFloors] = useState<string[]>([]);
+  const [expandedFloor, setExpandedFloor] = useState<string | null>(null);
+
+  // FETCH BUILDING
+  useEffect(() => {
+    if (!slug) return;
+
+    fetch(`/api/buildingdata?slug=${slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.error) {
+          setBuilding(data);
+
+          // SAFE FLOOR FALLBACK
+          const floors =
+            data.floor ||
+            data.floors ||
+            ["1ST"];
+
+          setFloorOrder(floors);
+          setVisibleFloors(floors);
+        }
+      })
+      .finally(() => setLoading(false));
+  }, [slug]);
+
+  const selectFloorLevel = (floor: string) => {
+    const index = floorOrder.indexOf(floor);
+    setVisibleFloors(floorOrder.slice(0, index + 1));
+  };
+
+  if (!slug) return null;
+  if (loading) return <div>Loading...</div>;
+  if (!building) return <div>Not Found</div>;
+
+  const models: any = {
+    ioes: <IOES visibleFloors={visibleFloors} />,
+    shs: <SHS />,
+    cass: <CASS />,
+    newacad: <NewAcad visibleFloors={visibleFloors} />,
+    studencenter: <StudenCenter />,
+    fic: <FIC />,
+    coed: <COED />,
+  };
+
+  return (
+    <div style={{ display: "flex", height: "100vh" }}>
+      {/* LEFT 3D */}
+      <div style={{ flex: 1 }}>
+        <Canvas camera={{ position: [-160, -10, 80], fov: 25 }}>
+          <Environment preset="city" />
+          <color attach="background" args={["#45474B"]} />
+
+          <Suspense fallback={null}>
+            <Stage adjustCamera={false} intensity={0.4}>
+              <group rotation={[0, Math.PI, 0]}>
+                {models[slug.toLowerCase()] ?? <mesh />}
+              </group>
+            </Stage>
+          </Suspense>
+
+          <MapControls
+            enableRotate
+            enableZoom
+            enablePan
+            maxPolarAngle={Math.PI / 2.2}
+            maxDistance={150}
+          />
+        </Canvas>
+
+        <Loader />
+      </div>
+
+      {/* RIGHT PANEL */}
+      <div
+        style={{
+          width: 380,
+          padding: 24,
+          overflowY: "auto",
+          borderLeft: "1px solid #ddd",
+        }}
+      >
+        {/* TITLE */}
+        <h1 style={{ color: "#61063b" }}>
+          {building.name}
+        </h1>
+
+        {/* DESCRIPTION */}
+        <p
+          style={{
+            fontSize: 14,
+            textAlign: "justify",
+          }}
+        >
+          {building.description}
+        </p>
+
+        {/* OFFICES */}
+        <div style={{ marginTop: 20 }}>
+          <h3>OFFICES</h3>
+
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            {building.offices?.map((o: any) => (
+              <span
+                key={o.office_id}
+                style={{
+                  padding: "6px 10px",
+                  background: "#fff",
+                  border: "1px solid #ccc",
+                  borderRadius: 6,
+                }}
+              >
+                {o.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* FLOORS + ROOMS */}
+        <div style={{ marginTop: 30 }}>
+          <h3>FLOORS</h3>
+
+          {floorOrder.map((floor) => {
+            const isOpen = expandedFloor === floor;
+
+            const floorRooms =
+              building.rooms?.filter(
+                (r: any) =>
+                  r.floor === floor
+              ) || [];
+
+            return (
+              <div key={floor} style={{ marginBottom: 10 }}>
+                <button
+                  onClick={() =>
+                    setExpandedFloor(
+                      isOpen ? null : floor
+                    )
+                  }
+                  style={{
+                    width: "100%",
+                    padding: 10,
+                    background: "#61063b",
+                    color: "white",
+                    border: "none",
+                    textAlign: "left",
+                    cursor: "pointer",
+                  }}
+                >
+                  {floor} ({floorRooms.length})
+                </button>
+
+                {isOpen && (
+                  <div
+                    style={{
+                      padding: 10,
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 8,
+                    }}
+                  >
+                    {floorRooms.length === 0 ? (
+                      <span>No rooms</span>
+                    ) : (
+                      floorRooms.map((room: any) => (
+                        <span
+                          key={room.room_id}
+                          style={{
+                            padding: "6px 10px",
+                            background: "#eee",
+                            borderRadius: 6,
+                          }}
+                        >
+                          {room.name}
+                        </span>
+                      ))
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+},  implement to this "use client";
+
+import { IOES } from "../../buildings/ioes";
+import { SHS } from "../../buildings/Cas-shs";
+import { CASS } from "../../buildings/cas";
+import { NewAcad } from "../../buildings/newacad";
+import { StudenCenter } from "../../buildings/student-center";
+import { FIC } from "../../buildings/fic";
+import { COED } from "../../buildings/coed";
+
+import { useParams } from "next/navigation";
+import { Canvas } from "@react-three/fiber";
+import {
+  Stage,
+  Loader,
+  MapControls,
+  Environment,
+} from "@react-three/drei";
+
+import React, { Suspense, useEffect, useState } from "react";
+
+export default function BuildingPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+
+  const [building, setBuilding] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+
+  // FLOOR STATES
+  const [floorOrder, setFloorOrder] = useState<string[]>([]);
+  const [visibleFloors, setVisibleFloors] = useState<string[]>([]);
+  const [expandedFloor, setExpandedFloor] =
+    useState<string | null>(null);
+
+  useEffect(() => {
+    if (!slug) return;
+
+    fetch(`/api/buildingdata?slug=${slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("API RESPONSE:", data);
+
+        if (!data.error) {
+          setBuilding(data);
+
+          // BUILDING FLOORS
+          const buildingFloors = data.floors || ["1ST"];
+
+          setFloorOrder(buildingFloors);
+          setVisibleFloors(buildingFloors);
+        } else {
+          setBuilding(null);
+        }
+      })
+      .finally(() => setLoading(false));
+  }, [slug]);
+
+  // FLOOR VISIBILITY FOR 3D
+  const selectFloorLevel = (floor: string) => {
+    const index = floorOrder.indexOf(floor);
+
+    const newVisible = floorOrder.slice(0, index + 1);
+
+    setVisibleFloors(newVisible);
+  };
+
+  if (!slug) return null;
+
+  if (loading) return <div>Loading...</div>;
+
+  if (!building) return <div>Building Not Found</div>;
+
+  // 3D MODEL MAP
+  const models: any = {
+    ioes: <IOES visibleFloors={visibleFloors} />,
+    shs: <SHS />,
+    cass: <CASS />,
+    newacad: (
+      <NewAcad visibleFloors={visibleFloors} />
+    ),
+    studencenter: <StudenCenter />,
+    fic: <FIC />,
+    coed: <COED />,
+  };
+
+  return (
+    <div style={{ display: "flex", height: "100vh" }}>
+      {/* LEFT SIDE 3D */}
+      <div style={{ flex: 1 }}>
+        <Canvas
+          camera={{
+            position: [-160, -10, 80],
+            fov: 25,
+          }}
+        >
+          <Environment preset="city" />
+
+          <color
+            attach="background"
+            args={["#45474B"]}
+          />
+
+          <Suspense fallback={null}>
+            <Stage
+              adjustCamera={false}
+              intensity={0.4}
+            >
+              <group rotation={[0, Math.PI, 0]}>
+                {models[slug.toLowerCase()] ?? <mesh />}
+              </group>
+            </Stage>
+          </Suspense>
+
+          <MapControls
+            enableRotate={true}
+            enableZoom={true}
+            enablePan={true}
+            maxPolarAngle={Math.PI / 2.2}
+            minPolarAngle={0}
+            maxDistance={150}
+          />
+        </Canvas>
+
+        <Loader />
+      </div>
+
+      {/* RIGHT SIDEBAR */}
+      <div
+        style={{
+          width: "380px",
+          padding: "24px",
+          overflowY: "auto",
+          borderLeft: "1px solid #e5e7eb",
+        }}
+      >
+        {/* TITLE */}
+        <h1
+          style={{
+            fontSize: "26px",
+            fontWeight: "bold",
+            color: "#61063b",
+            fontFamily: "Sans-Serif",
+          }}
+        >
+          {building.name}
+        </h1>
+
+        {/* DESCRIPTION */}
+        <div
+          style={{
+            marginTop: "15px",
+            color: "#202940",
+          }}
+        >
+          <p
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: expanded
+                ? "unset"
+                : 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              fontFamily: "Arial",
+              lineHeight: "1.6",
+              fontSize: "14px",
+              color: "#03045e",
+              textAlign: "justify",
+            }}
+          >
+            {building.description}
+          </p>
+
+          <button
+            onClick={() =>
+              setExpanded(!expanded)
+            }
+            style={{
+              marginTop: "6px",
+              fontSize: "12px",
+              color: "#61063b",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+            }}
+          >
+            {expanded
+              ? "Show less"
+              : "Show more"}
+          </button>
+        </div>
+
+        {/* OFFICES */}
+        <div
+          style={{
+            marginTop: "20px",
+            padding: "16px",
+            background: "#61063b",
+            borderRadius: "10px",
+          }}
+        >
+          <h3
+            style={{
+              marginBottom: "20px",
+              color: "white",
+              fontFamily: "Sans-Serif",
+              fontSize: "18px",
+            }}
+          >
+            OFFICES / DEPARTMENTS
+          </h3>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px",
+            }}
+          >
+            {building.offices?.map(
+              (office: any) => (
+                <span
+                  key={office.office_id}
+                  style={{
+                    padding: "8px 12px",
+                    background: "white",
+                    color: "#03045e",
+                    fontSize: "12px",
+                    fontFamily: "Arial",
+                    border:
+                      "solid 1px white",
+                    borderRadius: "6px",
+                  }}
+                >
+                  {office.name}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* FLOOR SELECTOR */}
+        <div
+          style={{
+            marginTop: "20px",
+            padding: "16px",
+            background: "#61063b",
+            borderRadius: "10px",
+          }}
+        >
+          <h3
+            style={{
+              marginBottom: "20px",
+              color: "white",
+              fontFamily: "Sans-Serif",
+              fontSize: "18px",
+            }}
+          >
+            SELECT FLOOR
+          </h3>
+
+          {/* FLOOR BUTTONS */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "10px",
+            }}
+          >
+            {floorOrder.map((floor) => {
+              const isActive =
+                expandedFloor === floor;
+
+              return (
+                <button
+                  key={floor}
+                  onClick={() => {
+                    selectFloorLevel(floor);
+
+                    setExpandedFloor(
+                      isActive
+                        ? null
+                        : floor
+                    );
+                  }}
+                  style={{
+                    padding: "6px 10px",
+                    fontFamily: "Arial",
+                    border: isActive
+                      ? "2px solid white"
+                      : "1px solid grey",
+                    borderRadius: "6px",
+                    cursor: "pointer",
+                    background:
+                      "transparent",
+                    color: isActive
+                      ? "white"
+                      : "darkgrey",
+                    transition:
+                      "all 0.2s ease",
+                  }}
+                >
+                  {floor === "roof"
+                    ? "Full Building"
+                    : floor}
+                </button>
+              );
+            })}
+          </div>
+
+          <p
+            style={{
+              fontSize: "12px",
+              marginTop: "10px",
+              color: "#d1d5db",
+              fontFamily: "Arial",
+            }}
+          >
+            Click floor to show rooms.
+          </p>
+
+          {/* FLOOR ROOMS */}
+          <div style={{ marginTop: "20px" }}>
+            {floorOrder.map((floor) => {
+              const floorRooms =
+                building.rooms?.filter(
+                  (room: any) =>
+                    room.floor === floor
+                ) || [];
+
+              const isExpanded =
+                expandedFloor === floor;
+
+              return (
+                <div
+                  key={floor}
+                  style={{
+                    marginBottom: "14px",
+                    border:
+                      "1px solid rgba(255,255,255,0.2)",
+                    borderRadius: "8px",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* FLOOR HEADER */}
+                  <div
+                    onClick={() =>
+                      setExpandedFloor(
+                        isExpanded
+                          ? null
+                          : floor
+                      )
+                    }
+                    style={{
+                      padding: "10px 12px",
+                      cursor: "pointer",
+                      color: "white",
+                      fontFamily: "Arial",
+                      fontWeight: "bold",
+                      background:
+                        "rgba(255,255,255,0.08)",
+                    }}
+                  >
+                    {floor} (
+                    {floorRooms.length})
+                  </div>
+
+                  {/* ROOM LIST */}
+                  {isExpanded && (
+                    <div
+                      style={{
+                        padding: "12px",
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: "8px",
+                      }}
+                    >
+                      {floorRooms.length >
+                      0 ? (
+                        floorRooms.map(
+                          (room: any) => (
+                            <span
+                              key={
+                                room.room_id
+                              }
+                              style={{
+                                padding:
+                                  "8px 12px",
+                                background:
+                                  "white",
+                                color:
+                                  "#03045e",
+                                fontSize:
+                                  "12px",
+                                borderRadius:
+                                  "6px",
+                                fontFamily:
+                                  "Arial",
+                              }}
+                            >
+                              {room.name}
+                            </span>
+                          )
+                        )
+                      ) : (
+                        <span
+                          style={{
+                            color:
+                              "#d1d5db",
+                            fontSize:
+                              "12px",
+                            fontFamily:
+                              "Arial",
+                          }}
+                        >
+                          No rooms found
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
