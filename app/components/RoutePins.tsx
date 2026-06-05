@@ -5,7 +5,9 @@ import { Marker } from "react-map-gl/maplibre";
 type Props = {
   start: { latitude: number; longitude: number } | null;
   end: { latitude: number; longitude: number } | null;
+
 };
+
 
 export default function RoutePins({ start, end }: Props) {
   return (

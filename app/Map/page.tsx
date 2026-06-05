@@ -241,7 +241,10 @@ const [selectedRoomOrOffice, setSelectedRoomOrOffice] = useState<RoomOrOffice | 
 
         {/* Route start/end pins */}
         {userLocation && destinationPin && (
-          <RoutePins origin={userLocation} destination={destinationPin} />
+       <RoutePins
+  start={userLocation}
+  end={destinationPin}
+/>
         )}
 
         {/* 3D buildings */}
