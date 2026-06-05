@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Interactive Campus Map of MSU-TCTO",
   description: "Interactive Campus Map",
-  themeColor: "#000000",
   manifest: "/manifest.json",
 };
+
 export const viewport: Viewport = {
   themeColor: "#000000",
 };
