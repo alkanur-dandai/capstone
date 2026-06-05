@@ -20,7 +20,7 @@ import { IOES } from "../../buildings/ioes";
 import {SHSBUILDING } from "../../buildings/shsbuilding";
 import { CASS } from "../../buildings/cas";
 import { NewAcad } from "../../buildings/newacad";
-import {  StudentCenter } from "../../buildings/studentcenter";
+import {  STUDENTCENTER } from "../../buildings/studentcenter";
 
 import { COED } from "../../buildings/coed";
 import { NewRegistrar } from "../../buildings/newregistrar";
@@ -128,7 +128,7 @@ const router = useRouter();
     newregistrar: <NewRegistrar visibleFloors={visibleFloors} />,
     admin: <Admin visibleFloors={visibleFloors} />,
     coed: <COED visibleFloors={visibleFloors}/>,
-    studentcenter: <StudentCenter visibleFloors={visibleFloors}/>,
+    studentcenter: <STUDENTCENTER visibleFloors={visibleFloors}/>,
     library: <Library visibleFloors={visibleFloors}/>,
     cbam: <CBAM visibleFloors={visibleFloors}/>,
     shsbuilding: <SHSBUILDING visibleFloors={visibleFloors}/>,

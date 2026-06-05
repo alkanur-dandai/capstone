@@ -10,7 +10,7 @@ type Props = {
   visibleFloors?: string[]
 }
 
-export function StudentCenter({visibleFloors = ["1ST", "2ND", "roof"], selected, onSelect, onClick, ...props }: Props)  {
+export function STUDENTCENTER({visibleFloors = ["1ST", "2ND", "roof"], selected, onSelect, onClick, ...props }: Props)  {
   const { nodes, materials } = useGLTF('/studentcenter10000 - Copy.gltf') as any
   return (
     <group  {...props}

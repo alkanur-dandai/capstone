@@ -14,7 +14,7 @@ import FacultyCard from "../components/FacultyCard";
 
 import { IOES } from "../buildings/ioes";
 import { NewAcad } from "../buildings/newacad";
-import { StudentCenter } from "../buildings/studentcenter";
+import { STUDENTCENTER } from "../buildings/studentcenter";
 import { SHSBUILDING } from "../buildings/shsbuilding";
 import { CASS } from "../buildings/cas";
 import { FIC } from "../buildings/fic";
@@ -241,10 +241,7 @@ const [selectedRoomOrOffice, setSelectedRoomOrOffice] = useState<RoomOrOffice | 
 
         {/* Route start/end pins */}
         {userLocation && destinationPin && (
-       <RoutePins
-  start={userLocation}
-  end={destinationPin}
-/>
+      <RoutePins start={userLocation} end={destinationPin} />
         )}
 
         {/* 3D buildings */}
@@ -339,7 +336,7 @@ const [selectedRoomOrOffice, setSelectedRoomOrOffice] = useState<RoomOrOffice | 
 
             <IOES selected={selected === "IOES"} onClick={() => go("IOES")} />
             <NewAcad selected={selected === "NewAcad"} onClick={() => go("NewAcad")} />
-            <StudentCenter selected={selected === "StudentCenter"} onClick={() => go("StudentCenter")}/>
+            <STUDENTCENTER selected={selected === "STUDENTCENTER"} onClick={() => go("STUDENTCENTER")}/>
               
             <SHSBUILDING selected={selected === "SHSBUILDING"} onClick={() => go("SHSBUILDING")} />
             <CASS selected={selected === "CASS"} onClick={() => go("CASS")} />
