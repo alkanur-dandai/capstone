@@ -1,23 +1,3 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-//    reactStrictMode: false,
-// };
-
-// const withPWA = require("next-pwa")({
-//   dest: "public",
-//   register: true,
-//   skipWaiting: true,
-// });
-
-// module.exports = withPWA({
-//   reactStrictMode: true,
-// });
-
-// export default nextConfig;
-
-
 import nextPWA from "next-pwa";
 import type { NextConfig } from "next";
 
@@ -30,6 +10,36 @@ const withPWA = nextPWA({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+
+  // Required: these packages use ESM and will fail Vercel's build without this
+  transpilePackages: [
+    "maplibre-gl",
+    "react-map-gl",
+    "react-three-map",
+    "@react-three/drei",
+    "@react-three/fiber",
+    "@react-three/postprocessing",
+  ],
+
+  webpack: (config, { isServer }) => {
+    // maplibre-gl references 'fs' which doesn't exist in the browser
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+      };
+    }
+
+    // Prevent maplibre-gl from being bundled on the server side at all
+    if (isServer) {
+      config.externals = [
+        ...(Array.isArray(config.externals) ? config.externals : []),
+        "maplibre-gl",
+      ];
+    }
+
+    return config;
+  },
 };
 
 export default withPWA(nextConfig);
