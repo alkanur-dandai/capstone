@@ -310,7 +310,7 @@ export default function MapPage() {
           )}
         </ReactThreeMapCanvas>
 
-        <Loader />
+        {/* <Loader /> */}
 
         {/* Search bar */}
         <div
