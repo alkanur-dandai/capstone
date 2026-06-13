@@ -67,43 +67,6 @@ import { NewBoysDorm } from "../buildings/newboysdorm";
 import { TennisCourt } from "../buildings/tenniscourt";
 import { SEARCDEC } from "../buildings/searcdec";
 import TreeComponent from "../environment/treecomponent";
-// ─── Dynamic imports for all 3D buildings (prevents SSR crash + reduces initial bundle) ──
-// const IOES               = dynamic(() => import("../buildings/ioes").then(m => ({ default: m.IOES })), { ssr: false });
-// const NewAcad            = dynamic(() => import("../buildings/newacad").then(m => ({ default: m.NewAcad })), { ssr: false });
-// const STUDENTCENTER      = dynamic(() => import("../buildings/studentcenter").then(m => ({ default: m.STUDENTCENTER })), { ssr: false });
-// const SHSBUILDING        = dynamic(() => import("../buildings/shsbuilding").then(m => ({ default: m.SHSBUILDING })), { ssr: false });
-// const CASS               = dynamic(() => import("../buildings/cas").then(m => ({ default: m.CASS })), { ssr: false });
-// const FIC                = dynamic(() => import("../buildings/fic").then(m => ({ default: m.FIC })), { ssr: false });
-// const COED               = dynamic(() => import("../buildings/coed").then(m => ({ default: m.COED })), { ssr: false });
-// const NewRegistrar       = dynamic(() => import("../buildings/newregistrar").then(m => ({ default: m.NewRegistrar })), { ssr: false });
-// const FacultyCenter      = dynamic(() => import("../buildings/facultycenter").then(m => ({ default: m.FacultyCenter })), { ssr: false });
-// const Dormitel           = dynamic(() => import("../buildings/dormitel").then(m => ({ default: m.Dormitel })), { ssr: false });
-// const Gym                = dynamic(() => import("../buildings/gym").then(m => ({ default: m.Gym })), { ssr: false });
-// const ISL                = dynamic(() => import("../buildings/isl").then(m => ({ default: m.ISL })), { ssr: false });
-// const MaasKamlon         = dynamic(() => import("../buildings/maaskamlon").then(m => ({ default: m.MaasKamlon })), { ssr: false });
-// const Cafeteria          = dynamic(() => import("../buildings/cafeteria").then(m => ({ default: m.Cafeteria })), { ssr: false });
-// const Admin              = dynamic(() => import("../buildings/admin").then(m => ({ default: m.Admin })), { ssr: false });
-// const MSM                = dynamic(() => import("../buildings/msm").then(m => ({ default: m.MSM })), { ssr: false });
-// const OCeanes            = dynamic(() => import("../buildings/oceanes").then(m => ({ default: m.OCeanes })), { ssr: false });
-// const BOYSDORMITORY      = dynamic(() => import("../buildings/boysdormitory").then(m => ({ default: m.BOYSDORMITORY })), { ssr: false });
-// const SUPPLYANDPROCUREMENT = dynamic(() => import("../buildings/supplyandprocurement").then(m => ({ default: m.SUPPLYANDPROCUREMENT })), { ssr: false });
-// const CBAM               = dynamic(() => import("../buildings/cbam").then(m => ({ default: m.CBAM })), { ssr: false });
-// const DataCenter         = dynamic(() => import("../buildings/datacenter").then(m => ({ default: m.DataCenter })), { ssr: false });
-// const GIRLDORMITORY      = dynamic(() => import("../buildings/girldormitory").then(m => ({ default: m.GIRLDORMITORY })), { ssr: false });
-// const Park               = dynamic(() => import("../buildings/park").then(m => ({ default: m.Park })), { ssr: false });
-// const Infirmary          = dynamic(() => import("../buildings/infirmary").then(m => ({ default: m.Infirmary })), { ssr: false });
-// const SED                = dynamic(() => import("../buildings/sed").then(m => ({ default: m.SED })), { ssr: false });
-// const Library            = dynamic(() => import("../buildings/library").then(m => ({ default: m.Library })), { ssr: false });
-// const COF1               = dynamic(() => import("../buildings/cof1").then(m => ({ default: m.COF1 })), { ssr: false });
-// const COF2               = dynamic(() => import("../buildings/cof2").then(m => ({ default: m.COF2 })), { ssr: false });
-// const COFLAB = dynamic(() => import("../buildings/coflab").then(m => ({ default: m.COFLAB })), { ssr: false });
-// const ROTC               = dynamic(() => import("../buildings/rotc").then(m => ({ default: m.ROTC })), { ssr: false });
-// const PHYSICALPLANT      = dynamic(() => import("../buildings/physicalplant").then(m => ({ default: m.PHYSICALPLANT })), { ssr: false });
-// const NewGirlsdorm       = dynamic(() => import("../buildings/newgirlsdorm").then(m => ({ default: m.NewGirlsdorm })), { ssr: false });
-// const NewBoysDorm        = dynamic(() => import("../buildings/newboysdorm").then(m => ({ default: m.NewBoysDorm })), { ssr: false });
-// const TennisCourt        = dynamic(() => import("../buildings/tenniscourt").then(m => ({ default: m.TennisCourt })), { ssr: false });
-// const SEARCDEC           = dynamic(() => import("../buildings/searcdec").then(m => ({ default: m.SEARCDEC })), { ssr: false });
-// const TreeComponent      = dynamic(() => import("../environment/treecomponent"), { ssr: false });
 
 // ─── Hook: reactive online/offline detection ─────────────────────────────────
 function useIsOnline() {
