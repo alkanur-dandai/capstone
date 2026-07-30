@@ -11,7 +11,7 @@ type Props = {
   visibleFloors?: string[]
 }
 export function SUPPLYANDPROCUREMENT({ visibleFloors = ["1ST", "2ND", "roof"], selected, onSelect, onClick, ...props }: Props) {
-   const { nodes, materials } = useGLTF('/glb/supply and procurement office_compressed.glb') as any;
+   const { nodes, materials } = useGLTF('/glb/supply and procurement office output.glb') as any;
   return (
    <group  {...props}
       onClick={(e) => {
