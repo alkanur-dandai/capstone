@@ -1,7 +1,6 @@
 
 
 
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 type Props = {
   selected?: boolean
@@ -28,6 +27,7 @@ export function NewRegistrar({  visibleFloors = ["1ST", "2ND", "roof"], selected
                 castShadow
                 receiveShadow
                 geometry={nodes['3DGeom-1'].geometry}
+                
                 material={materials['[0023_FireBrick]']}
               />
               <mesh
