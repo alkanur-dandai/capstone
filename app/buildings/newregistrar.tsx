@@ -15,7 +15,11 @@ type Props = {
 export function NewRegistrar({  visibleFloors = ["1ST", "2ND", "roof"], selected, onSelect, onClick, ...props }: Props) {
   const { nodes, materials } = useGLTF('/glb/Registrar output.glb') as any;
   return (
-    <group  dispose={null}>
+    <group   {...props}
+      onClick={(e) => {
+        e.stopPropagation()
+        onClick?.()
+      }} {...props} dispose={null}  position={[4,0,-147 ]} rotation={[0,-Math.PI / 8, 0, ]} >
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group name="Assembly-109" scale={0.001}>
            {visibleFloors.includes('roof') && (

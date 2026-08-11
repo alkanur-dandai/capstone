@@ -145,6 +145,39 @@ export default function MapPage() {
 
   const [showPaths, setShowPaths] = useState(false);
 
+  const addCampusOverlay = useCallback(() => {
+  if (!mapRef.current) return;
+
+  const map = mapRef.current.getMap();
+
+  // Prevent adding it twice
+  if (map.getSource("campus-image")) return;
+
+  map.addSource("campus-image", {
+    type: "image",
+    url: "/assets/overlay.png", // public/assets/campus-overlay.png
+    coordinates: [
+      [119.7431616,
+              5.0389777], // top-left
+      [119.7432416,
+              5.0391769], // top-right
+      [119.7433362,
+              5.0391389], // bottom-right
+      [ 119.7432527,
+              5.0389371], // bottom-left
+    ],
+  });
+
+  map.addLayer({
+    id: "campus-overlay",
+    type: "raster",
+    source: "campus-image",
+    paint: {
+      "raster-opacity": 1,
+    },
+  });
+}, []);
+
   return (
     <div
       style={{
@@ -168,6 +201,7 @@ export default function MapPage() {
         mapStyle={mapStyle}
         interactive={true}
         onClick={handleMapClick}
+        onLoad={addCampusOverlay}
       >
         {/* User location marker */}
         {userLocation && (
@@ -264,7 +298,7 @@ export default function MapPage() {
 
             <IOES selected={selected === "IOES"} onClick={() => go("IOES")} />
             <NewAcad selected={selected === "NewAcad"} onClick={() => go("NewAcad")} />
-            <STUDENTCENTER selected={selected === "STUDENTCENTER"} onClick={() => go("STUDENTCENTER")} />
+            {/* <STUDENTCENTER selected={selected === "STUDENTCENTER"} onClick={() => go("STUDENTCENTER")} /> */}
             <SHSBUILDING selected={selected === "SHSBUILDING"} onClick={() => go("SHSBUILDING")} />
             <CASS selected={selected === "CASS"} onClick={() => go("CASS")} />
             <FIC selected={selected === "FIC"} onClick={() => go("FIC")} />
